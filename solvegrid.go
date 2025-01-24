@@ -9,19 +9,19 @@ func SolveGrid(grid [][]int) bool {
 
 	for i := 0; i < 9; i++ {
 		for j := 0; j < 9; j++ {
-			if grid[i][j] == 0 {
-				for num := 1; num <= 9; num++ {
+			if grid[i][j] == 0 { // checks for empty spaces to fill
+				for num := 1; num <= 9; num++ { // tries each number till it find one that works
 					if CheckCell(grid, i, j, num) {
 						grid[i][j] = num
-						if SolveGrid(grid) {
+						if SolveGrid(grid) { // recusive step to will return true if all the empty spaces are filled
 							return true
 						}
-						grid[i][j] = 0
+						grid[i][j] = 0 // reset the number to empty space if ends to deadend
 					}
 				}
-				return false
+				return false // return false if we run out of numbers to put in the empty space
 			}
 		}
 	}
-	return true
+	return true // return true if all spaces are already filled
 }
