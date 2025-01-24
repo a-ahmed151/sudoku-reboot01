@@ -6,14 +6,14 @@ func ValidInput(input []string) ([][]int, bool) {
 	   and return a grid and true if the input is valid
 	   or returns a empty grid and false if the input is invalid
 	*/
-	if len(input) != 9 {
+	if len(input) != 10 {
 		return nil, false
 	}
 	grid := make([][]int, 9)
 	for i := 0; i < 9; i++ {
 		grid[i] = make([]int, 9)
 	}
-	for i, r := range input {
+	for i, r := range input[1:] {
 		if len(r) != 9 {
 			return nil, false
 		}
