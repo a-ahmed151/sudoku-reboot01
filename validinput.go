@@ -6,6 +6,7 @@ func ValidInput(input []string) ([][]int, bool) {
 	   and return a grid and true if the input is valid
 	   or returns a empty grid and false if the input is invalid
 	*/
+
 	if len(input) != 10 {
 		return nil, false
 	}
@@ -28,5 +29,16 @@ func ValidInput(input []string) ([][]int, bool) {
 			}
 		}
 	}
+
+	// this checks if the inputed grid is correct with no repated numbers in row, column and boxes
+	for row := 0; row < 9; row++ {
+		for col := 0; col < 9; col++ {
+			num := grid[row][col]
+			if !CheckCell(grid, row, col, num) {
+				return nil, false
+			}
+		}
+	}
+
 	return grid, true
 }
