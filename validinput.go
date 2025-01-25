@@ -34,7 +34,7 @@ func ValidInput(input []string) ([][]int, bool) {
 	for row := 0; row < 9; row++ {
 		for col := 0; col < 9; col++ {
 			num := grid[row][col]
-			if !CheckCell(grid, row, col, num) {
+			if !CheckCell(grid, row, col, num) && num != 0 {
 				return nil, false
 			}
 		}
